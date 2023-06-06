@@ -4,27 +4,39 @@ slider-component {
   display: block;
 }
 
+.collection-list-wrapper slider-component {
+  max-width: 1324px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .collection-list-wrapper slider-component {
+    max-width: 500px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .collection-list-wrapper slider-component {
+    max-width: 1324px;
+  }
+}
+
 slider-component.slider-component-full-width {
   --desktop-margin-left-first-item: 1.5rem;
 }
 
 @media screen and (max-width: 749px) {
   slider-component.page-width {
-    padding: 0 1.5rem;
+    padding: 0;
   }
 }
 
-@media screen and (min-width: 749px) and (max-width: 990px) {
-  slider-component.page-width {
-    padding: 0 5rem;
-  }
-}
+
 
 @media screen and (max-width: 989px) {
   .no-js slider-component .slider {
     padding-bottom: 3rem;
   }
 }
+  
 
 .slider__slide {
   --focus-outline-padding: 0.5rem;
@@ -135,6 +147,16 @@ slider-component.slider-component-full-width {
   scroll-snap-align: center;
 }
 
+@media screen and (min-width: 640px) {
+  .slider--desktop.grid--4-col-desktop .grid__item {
+    width: calc( (100% - var(--desktop-margin-left-first-item)) / 2 - var(--grid-desktop-horizontal-spacing) * 2);
+  }
+  
+  .collection  .slider--tablet.grid--peek .grid__item:first-of-type {
+      margin-left: 0;
+  }
+}
+
 @media screen and (min-width: 990px) {
   .slider-component-desktop.page-width {
     max-width: none;
@@ -171,12 +193,12 @@ slider-component.slider-component-full-width {
   }
 
   .slider-component-full-width .slider--desktop {
-    scroll-padding-left: 1.5rem;
+    scroll-padding-left: 0;
   }
 
   .slider-component-full-width .slider--desktop .slider__slide:first-child {
-    margin-left: 1.5rem;
-    scroll-margin-left: 1.5rem;
+    margin-left: 0;
+    scroll-margin-left: 0;
   }
 
   /* Fix to show some space at the end of our sliders in all browsers */
@@ -189,7 +211,7 @@ slider-component.slider-component-full-width {
   }
 
   .slider--desktop.grid--4-col-desktop .grid__item {
-    width: calc( (100% - var(--desktop-margin-left-first-item)) / 4 - var(--grid-desktop-horizontal-spacing) * 3);
+    width: calc( (100% - var(--desktop-margin-left-first-item)) / 1 - var(--grid-desktop-horizontal-spacing) * 1);
   }
 
   .slider--desktop.grid--3-col-desktop .grid__item {
@@ -212,6 +234,27 @@ slider-component.slider-component-full-width {
     --focus-outline-padding: 0rem;
   }
 }
+
+@media screen and (min-width: 1024px) {
+
+  .slider--desktop.grid--4-col-desktop .grid__item {
+    width: calc( (100% - var(--desktop-margin-left-first-item)) / 2 - var(--grid-desktop-horizontal-spacing) * 2);
+    max-width: calc(34% - var(--grid-desktop-horizontal-spacing) * 3 /2);
+  }
+  
+}
+
+
+@media screen and (min-width: 1440px) {
+
+  .slider--desktop.grid--4-col-desktop .grid__item {
+    width: calc( (100% - var(--desktop-margin-left-first-item)) / 2 - var(--grid-desktop-horizontal-spacing) * 2);
+    max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+  }
+}
+
+
+
 
 @media (prefers-reduced-motion) {
   .slider {
@@ -348,15 +391,18 @@ slider-component.slider-component-full-width {
 }
 
 .slider-button {
-  color: rgba(var(--color-foreground), 0.75);
-  background: transparent;
   border: none;
   cursor: pointer;
-  width: 44px;
-  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-shadow: 0px 1px 11px rgba(0, 0, 0, 0.16);
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  border-radius: 50px;
 }
 
 .slider-button:not([disabled]):hover {
@@ -386,4 +432,71 @@ slider-component.slider-component-full-width {
 
 .slider-button--prev:not([disabled]):hover .icon {
   transform: rotate(90deg) scale(1.1);
+}
+
+.collection  slider-component.page-width {
+  padding: 0 0;
+}
+slider-component button.slider-button.slider-button--prev {
+  position: absolute;
+  left: -1%;
+  top: 27%;
+  z-index: 99999;
+}
+slider-component button.slider-button.slider-button--next {
+  position: absolute;
+  right: -1%;
+  top: 27%;
+  z-index: 99999;
+}
+@media screen and (min-width: 768px) {
+  slider-component button.slider-button.slider-button--prev {
+    position: absolute;
+    left: -1%;
+    top: 27%;
+  }
+  slider-component button.slider-button.slider-button--next {
+    position: absolute;
+    right: -1%;
+    top: 27%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  slider-component button.slider-button.slider-button--prev {
+    left: -1%;
+    top: 25%;
+  }
+  slider-component button.slider-button.slider-button--next {
+    right: -1%;
+    top: 25%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .slider-button {
+    width: 53px;
+    height: 53px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  slider-component button.slider-button.slider-button--prev {
+    left: -0.6%;
+    top: 27%;
+  }
+  slider-component button.slider-button.slider-button--next {
+    right: -0.6%;
+    top: 27%;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  slider-component button.slider-button.slider-button--prev {
+    left: 0.3%;
+    top: 27%;
+  }
+  slider-component button.slider-button.slider-button--next {
+    right:  0.3%;
+    top: 27%;
+  }
 }

@@ -1,7 +1,8 @@
 .video-section__media {
   --ratio-percent: 56.25%;
   position: relative;
-  padding-bottom: calc(var(--ratio-percent) - var(--media-border-width));
+  /* padding-bottom: calc(var(--ratio-percent) - var(--media-border-width)); */
+  padding-bottom: 85%;
 }
 
 .video-section__media.global-media-settings--full-width {
@@ -20,6 +21,20 @@
   outline-offset: 0.3rem;
 }
 
+.video-section__poster.deferred-media__poster {
+  border: 1px solid #262424;
+  border-radius: 10px;
+}
+@media (min-width: 500px) {
+  .video-section__media {
+    padding-bottom: calc(var(--ratio-percent) - var(--media-border-width));
+  }
+}
+@media (min-width: 768px) {
+  .video-section__poster.deferred-media__poster {
+    border-radius: 20px;
+  }
+}
 .video-section__media iframe {
   background-color: rgba(var(--color-foreground), 0.03);
   border: 0;
@@ -31,6 +46,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  border-radius: 20px;
 }
 
 .video-section__media video {
@@ -39,4 +55,38 @@
 
 .video-section__media.media-fit-cover video {
   object-fit: cover;
+}
+
+deferred-media.video-section__media {
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+@media (min-width: 768px) {
+  deferred-media.video-section__media {
+    width: 650px;
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  deferred-media.video-section__media {
+    width: 900px;
+  }
+}
+
+@media (min-width: 1440px) {
+  deferred-media.video-section__media {
+    width: 1200px;
+  }
+}
+
+@media (min-width: 1750px) {
+  deferred-media.video-section__media {
+    width: 1336px;
+  }
+}
+@media (min-width: 2100px) {
+
 }

@@ -362,8 +362,173 @@
   row-gap: var(--grid-mobile-vertical-spacing);
 }
 
+.custom-about {
+  background: #FAFBF5;
+}
+.custom-about .image-with-text__content  {
+  background: transparent!important;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-right: 0;
+  padding-left:  0;
+  padding-bottom: 0;
+  padding-top: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.custom-about .image-with-text__content .image-with-text__text+.button {
+   margin-top: 0.75rem;
+}
+.custom-about .image-with-text__content>*+* {
+  margin-top: 1.5rem;
+}
+.image-with-text.custom-about .global-media-settings {
+  border: 1px solid #262424;
+  border-radius: 10px;
+  position: relative;
+}
+
+.custom-about .image-with-text__text.rte.body {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+  color: #323232;
+}
+.custom-about .image-with-text__content .title {
+  margin-bottom: 0;
+}
+
+.custom-about .gif__img {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 20px;
+  right: 20px;
+  z-index: 11;
+}
+.hero_image_text_sec {
+  background: #E5DDAB;
+}
+.hero_image_text_sec .image-with-text__content {
+  max-width: 600px;
+  margin: 0 auto;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero_image_text_sec .image-with-text__media-item {
+  background: transparent;
+}
+.hero_image_text_sec .image-with-text__media-item .image-with-text__media {
+  background: transparent;
+  padding-bottom: 63.662162%!important;
+}
+
+
+.hero_image_text_sec .image-with-text__text-item.left_content_part {
+  width: 100%;
+}
+.hero_image_text_sec .image-with-text__media-item.right_content_part {
+  width: 100%;
+}
+.hero_image_text_sec .image-with-text__content .image-with-text__text+.button {
+  margin-top: 2rem;
+}
+
+.hero_image_text_sec  .image-with-text__content>*+* {
+  margin-top: 1rem;
+}
+
 @media screen and (min-width: 750px) {
   .multirow__inner {
     row-gap: var(--grid-desktop-vertical-spacing);
+  }
+  .custom-about .image-with-text.custom-about .global-media-settings {
+    border-radius: 20px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .gif__img {
+    width: 108px;
+    height: 108px;
+    top: 36px;
+    right: 36px;
+  }
+  .hero_image_text_sec .image-with-text__text-item.left_content_part {
+    width: 50%;
+    padding-left: 5%;
+  }
+  .hero_image_text_sec .image-with-text__media-item.right_content_part {
+    width: 50%;
+  }
+  
+}
+@media screen and (min-width: 990px) {
+  .custom-about .image-with-text__content  {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .custom-about .image-with-text__text-item.grid__item.right__Sec {
+    padding-left: 5%;
+  }
+  .gif__img {
+    width: 70px;
+    height: 70px;
+    top: 20px;
+    right: 20px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .custom-about .image-with-text__content  {
+    padding-bottom: 40px;
+    padding-top: 40px;
+  }
+  .custom-about .image-with-text__content .image-with-text__text+.button {
+    margin-top: 1.5rem;
+  }
+  .custom-about .image-with-text__content>*+* {
+    margin-top: 2rem;
+  }
+  .hero_image_text_sec .image-with-text__text-item.left_content_part {
+    width: 45%;
+  }
+  .hero_image_text_sec .image-with-text__media-item.right_content_part {
+    width: 55%;
+    margin-left: -7%;
+  }
+}
+@media screen and (min-width: 1536px) { 
+  .custom-about .image-with-text__text.rte.body {
+    font-size: 18px;
+    line-height: 30px;;
+  }
+  .custom-about  .gif__img {
+    width: 108px;
+    height: 108px;
+    top: 36px;
+    right: 36px;
+  }
+  .hero_image_text_sec .image-with-text__content .image-with-text__text+.button {
+    margin-top: 3rem;
+  }
+  .hero_image_text_sec .image-with-text__content {
+    max-width: 800px;
+  }
+}
+@media screen and (min-width: 1750px) { 
+  .hero_image_text_sec .image-with-text__media-item.right_content_part {
+    margin-left: -15%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hero_image_text_sec .image-with-text__content {
+    padding: 23px 24px 40px;
   }
 }

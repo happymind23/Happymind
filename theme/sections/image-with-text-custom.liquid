@@ -14,9 +14,13 @@
   }
 {%- endstyle -%}
 
-<div class="image-with-text  image-with-text--{{ section.settings.content_layout }} isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == 'background-1' and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %} section-{{ section.id }}-padding">
+<div class="image-with-text custom-about image-with-text--{{ section.settings.content_layout }} isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == 'background-1' and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %} section-{{ section.id }}-padding">
   <div class="image-with-text__grid custome_continer grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
     <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
+
+        {%- if section.settings.icon != blank -%}
+            <img class="lazyload gif__img" src="{{ section.settings.icon | image_url }}" alt="{{ section.settings.icon.alt }}">
+        {%- endif -%}
       <div
         class="image-with-text__media image-with-text__media--{{ section.settings.height }} gradient color-{{ section.settings.color_scheme }} global-media-settings {% if section.settings.image != blank %}media{% else %}image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
         {% if section.settings.height == 'adapt' and section.settings.image != blank %}
@@ -47,16 +51,16 @@
         {%- endif -%}
       </div>
     </div>
-    <div class="image-with-text__text-item grid__item">
+    <div class="image-with-text__text-item grid__item right__Sec">
       <div
         id="ImageWithText--{{ section.id }}"
-        class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} gradient color-{{ section.settings.color_scheme }} content-container"
+        class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} text-left image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} gradient color-{{ section.settings.color_scheme }} content-container"
       >
         {%- for block in section.blocks -%}
           {% case block.type %}
             {%- when 'heading' -%}
               <h2
-                class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
+                class="title"
                 {{ block.shopify_attributes }}
               >
                 {{ block.settings.heading }}
@@ -80,10 +84,14 @@
                   {% else %}
                     href="{{ block.settings.button_link }}"
                   {% endif %}
-                  class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                  class="button link_btn"
                   {{ block.shopify_attributes }}
                 >
-                  {{ block.settings.button_label | escape }}
+                 <span> {{ block.settings.button_label | escape }}</span>
+                  <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.5 8.5H13.36L9.73 12.86C9.64595 12.9611 9.58265 13.0778 9.5437 13.2034C9.50474 13.329 9.49091 13.461 9.50298 13.5919C9.52736 13.8564 9.65578 14.1003 9.86 14.27C10.0642 14.4397 10.3275 14.5214 10.5919 14.497C10.8563 14.4726 11.1003 14.3442 11.27 14.14L16.27 8.14C16.3036 8.09228 16.3337 8.04214 16.36 7.99C16.36 7.94 16.41 7.91 16.43 7.86C16.4753 7.74534 16.4991 7.62329 16.5 7.5C16.4991 7.37671 16.4753 7.25466 16.43 7.14C16.43 7.09 16.38 7.06 16.36 7.01C16.3337 6.95786 16.3036 6.90773 16.27 6.86L11.27 0.860002C11.176 0.747119 11.0582 0.656339 10.9252 0.594118C10.7921 0.531897 10.6469 0.499763 10.5 0.500002C10.2663 0.499545 10.0399 0.580921 9.86 0.730002C9.75874 0.813951 9.67504 0.917051 9.61369 1.0334C9.55234 1.14975 9.51454 1.27705 9.50246 1.40803C9.49039 1.53901 9.50427 1.67108 9.54331 1.79668C9.58236 1.92229 9.6458 2.03895 9.73 2.14L13.36 6.5H1.5C1.23478 6.5 0.98043 6.60536 0.792893 6.7929C0.605357 6.98043 0.5 7.23479 0.5 7.5C0.5 7.76522 0.605357 8.01957 0.792893 8.20711C0.98043 8.39464 1.23478 8.5 1.5 8.5Z" fill="currentColor"/>
+                </svg>
+                    
                 </a>
               {%- endif -%}
           {%- endcase -%}
@@ -95,12 +103,17 @@
 
 {% schema %}
 {
-  "name": "t:sections.image-with-text.name",
+  "name": "About Section",
   "class": "section",
   "disabled_on": {
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "GIF Image"
+    },
     {
       "type": "image_picker",
       "id": "image",
@@ -455,7 +468,7 @@
   ],
   "presets": [
     {
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "About Section",
       "blocks": [
         {
           "type": "heading"

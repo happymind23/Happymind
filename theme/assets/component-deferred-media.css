@@ -70,8 +70,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 6.2rem;
-  width: 6.2rem;
+  height: 4.2rem;
+  width: 4.2rem;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -93,3 +93,24 @@
   margin-left: 0.2rem;
 }
 
+@media (min-width: 768px) {
+  
+}
+
+@media (min-width: 1024px) {
+  .deferred-media__poster-button {
+    height: 6.2rem;
+    width: 6.2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  
+}
+
+@media (min-width: 1750px) {
+ 
+}
+@media (min-width: 2100px) {
+
+}

@@ -46,6 +46,7 @@
       class="card__inner {% if card_style == 'standard' %}color-{{ card_color_scheme }} gradient{% endif %}{% if card_collection.featured_image or card_style == 'standard' %} ratio{% endif %}"
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
+
       {%- if card_collection.featured_image -%}
         <div class="card__media">
           <div class="media media--transparent media--hover-effect">
@@ -75,7 +76,8 @@
           </div>
         </div>
       {%- endif -%}
-      <div class="card__content">
+      
+      <div class="card__content collection_name">
         <div class="card__information">
           <h3 class="card__heading">
             <a
@@ -86,14 +88,30 @@
               {% endif %}
               class="full-unstyled-link"
             >
+              {% comment %} {%- if card_collection.description == blank -%}
+                <span class="icon-wrap">
+                </span>
+              {%- endif %} {% endcomment %}
+              
+              {% comment %} {%- if collection.metafields.featured_block_image != blank -%}
+                <img class="lazyload" data-src="{{ collection.metafields.featured_block_image | img_url: '400x' }}" alt="{{collection.metafields.featured_block_image.alt}}">
+              {%- endif -%} {% endcomment %}
+
+            
+                  
+            <div class="buton_style">
+              {% comment %} {%- if card_collection.main_image != blank -%}                       
+              <img class="lazyload w-full h-full object-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="{{ card_collection.main_image | img_url:'1000x' }}" alt="{{ card_collection.main_image.alt }}">   
+              {%- endif -%} {% endcomment %}
+
               {%- if card_collection.title != blank -%}
                 {{- card_collection.title | escape -}}
               {%- else -%}
                 {{ 'onboarding.collection_title' | t }}
               {%- endif -%}
-              {%- if card_collection.description == blank -%}
-                <span class="icon-wrap">{% render 'icon-arrow' %}</span>
-              {%- endif %}
+            </div>
+             
             </a>
           </h3>
           {%- if card_collection.description != blank -%}
@@ -105,7 +123,8 @@
         </div>
       </div>
     </div>
-    {% if card_style == 'card' or card_collection.featured_image %}
+
+    {% comment %} {% if card_style == 'card' or card_collection.featured_image %}
       <div class="card__content">
         <div class="card__information">
           <h3 class="card__heading">
@@ -135,6 +154,7 @@
           {%- endif -%}
         </div>
       </div>
-    {% endif %}
+    {% endif %} {% endcomment %}
   </div>
 </div>
+

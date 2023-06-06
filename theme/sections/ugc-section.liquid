@@ -1,0 +1,305 @@
+{{ 'ugc-section.css' | asset_url | stylesheet_tag }}
+{%- if section.settings.section_id -%}
+  <a aria-disabled="true" id="pdp_menu_item{{section.settings.section_id}}" class="relative -top-24"></a>
+{%- endif -%}
+
+<style>
+  :root .section-{{ section.id}}.color-custom {
+    --theme-color: {{ section.settings.section_text_color_scheme }}
+    ;
+    --theme-heading: {{ section.settings.section_heading_color_scheme }}
+    ;
+    --theme-sub-heading: {{ section.settings.section_sub_heading_color_scheme }}
+    ;
+    --theme-link-color: {{ section.settings.section_links_color_scheme }}
+    ;
+    --theme-background: {{ section.settings.section_background_color_scheme }}
+    ;
+  }
+</style>
+{%- assign ugc-card = section.blocks | where: 'type', 'ugc-card' -%}
+{% if ugc-card.size >= 1 %}
+  
+<section
+  class="ugc-section relative section-{{section.id}} color-{{ section.settings.color_scheme }}"
+  data-section-type="collection-section"
+  data-section-id="{{ section.id }}">
+
+  <div class="happy_mind_circle">
+      <div class="happy_mind_img">
+        {%- if section.settings.url-image2 != blank -%}
+          <img class="lazyload" src="{{ section.settings.url-image2 | image_url }}" alt="{{ section.settings.url-image2.alt }}">
+        {%- endif -%}
+      </div>
+      <div class="yellow_circle">
+        {%- if section.settings.url-image != blank -%}
+          <img class="lazyload" src="{{ section.settings.url-image | image_url }}" alt="{{ section.settings.url-image.alt }}">
+        {%- endif -%}
+      </div>
+  </div>
+
+  <div class="container">
+    <div class="flex text-left md:items-center gap-4 justify-between flex-col md:flex-row">
+      <h3 class="title">{{ section.settings.title }}</h3>
+    </div>
+  </div>
+
+  <div class="pt-[33px] lg:pt-12 2xl:pt-14 container padding_right">
+    
+    {%- if ugc-card.size > 0 -%}
+      <div class="Ugc-row swiper ugc-card-{{ ugc-card.size }} overflow-hidden pb-[26px] md:pb-[0] pl-[20px] md:pl-[30px] xl:pl-[65px] 4xl:pl-[100px] ">
+        <div class="swiper-wrapper">
+          {%- for block in ugc-card -%}
+            <div class="swiper-slide">
+              <div class="Ugc-card border border-darkgray">
+
+                {%- if block.settings.card-img != blank -%}
+                  <div class="Ugc-img space-x-1">
+                    <img
+                      class="lazyload object-cover"
+                      src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                      data-src="{{ block.settings.card-img | img_url:'400x' }}"
+                      alt="{{ block.settings.card-img.alt }}">
+                  </div>
+                {%- endif -%}
+                <div class="ugc-content border-t border-darkgray">
+                  <div class="flex flex-wrap mb-3">
+                    <div class="testimonial_review_star flex items-center space-x-1 flex-1">
+                      {%- for k in (1..5) -%}
+                        {%- assign review_star = block.settings.review_star | times: 1 -%}
+                        {%- if review_star >= k -%}
+                          <svg
+                            class="w-4 h-4"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.3993 7.14856L13.2731 6.20799L10.5271 0.32924C10.322 -0.109747 9.60546 -0.109747 9.40037 0.32924L6.65528 6.20799L0.529049 7.14856C0.0258643 7.22618 -0.175077 7.84126 0.177816 8.2043L4.62842 12.7895L3.57639 19.2716C3.49252 19.7865 4.03971 20.173 4.49225 19.9201L9.96417 16.8806L15.4361 19.9209C15.8845 20.1713 16.4366 19.7924 16.352 19.2724L15.2999 12.7903L19.7505 8.20514C20.1034 7.84126 19.9016 7.22618 19.3993 7.14856Z" fill="#FBC00F" />
+                          </svg>
+                        {%- else -%}
+                          <svg
+                            class="w-4 h-4"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.3993 7.14856L13.2731 6.20799L10.5271 0.32924C10.322 -0.109747 9.60546 -0.109747 9.40037 0.32924L6.65528 6.20799L0.529049 7.14856C0.0258643 7.22618 -0.175077 7.84126 0.177816 8.2043L4.62842 12.7895L3.57639 19.2716C3.49252 19.7865 4.03971 20.173 4.49225 19.9201L9.96417 16.8806L15.4361 19.9209C15.8845 20.1713 16.4366 19.7924 16.352 19.2724L15.2999 12.7903L19.7505 8.20514C20.1034 7.84126 19.9016 7.22618 19.3993 7.14856Z" fill="#D9D9D9" />
+                          </svg>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </div>
+                  </div>
+
+                  <div class="">
+                      <h5 class="review_title">
+                        {{ block.settings.sub_title }}
+                      </h5>
+                  </div>
+
+                  <div class="mb-5">
+                    {{ block.settings.content_description }}
+                  </div>
+
+
+               
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <div class="swiper-pagination long_bullet"></div>
+        {% comment %} <div class="swiper-button-next-ugc swiperArrow  z-10 absolute right-0">
+          <svg
+            width="48"
+            height="26"
+            viewBox="0 0 48 26"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M47.6828 12.2307L36.7739 1.32176C36.382 0.864179 35.6934 0.810836 35.2358 1.2028C34.7782 1.59467 34.7249 2.28334 35.1168 2.74093C35.1534 2.78358 35.1931 2.82343 35.2358 2.85989L44.2792 11.9143H1.09086C0.488429 11.9143 0 12.4027 0 13.0052C0 13.6078 0.488429 14.0961 1.09086 14.0961H44.2792L35.2358 23.1395C34.7782 23.5314 34.7249 24.2201 35.1168 24.6777C35.5088 25.1353 36.1974 25.1886 36.655 24.7966C36.6976 24.7601 36.7374 24.7203 36.7739 24.6777L47.6829 13.7687C48.1058 13.3434 48.1058 12.6562 47.6828 12.2307Z" fill="black" />
+          </svg>
+        </div>
+        <div class="swiper-button-prev-ugc swiperArrow z-10 absolute left-0">
+          <svg
+            width="49"
+            height="26"
+            viewBox="0 0 49 26"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.717632 12.2307L11.6265 1.32176C12.0183 0.864179 12.707 0.810836 13.1646 1.2028C13.6222 1.59467 13.6755 2.28334 13.2836 2.74093C13.247 2.78358 13.2073 2.82343 13.1646 2.85989L4.12116 11.9143H47.3095C47.912 11.9143 48.4004 12.4027 48.4004 13.0052C48.4004 13.6078 47.912 14.0961 47.3095 14.0961H4.12116L13.1646 23.1395C13.6222 23.5314 13.6755 24.2201 13.2836 24.6777C12.8916 25.1353 12.203 25.1886 11.7454 24.7966C11.7028 24.7601 11.6629 24.7203 11.6265 24.6777L0.717537 13.7687C0.294636 13.3434 0.29464 12.6562 0.717632 12.2307Z" fill="black" />
+          </svg>
+        </div> {% endcomment %}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+{% endif %}
+
+<script>
+  function docReady(fn) {
+    if (document.readyState === "complete" || document.readyState === "americaMonoactive") {
+      setTimeout(fn, 1);
+    } else {
+      document.addEventListener("DOMContentLoaded", fn);
+    }
+  }
+  docReady(function() {
+    var swiper = new Swiper(".ugc-section .Ugc-row", {
+      slidesPerView: 3,
+      spaceBetween: 28,
+      slidesOffsetAfter: 50,
+      {% comment %} navigation: {
+        nextEl: ".swiper-button-next-ugc.swiperArrow",
+        prevEl: ".swiper-button-prev-ugc.swiperArrow"
+      }, {% endcomment %}
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 25
+        },
+        767: {
+          slidesPerView: 2.2,
+          spaceBetween: 25
+        },
+        1024: {
+          slidesPerView: 2.3,
+          spaceBetween: 25
+        },
+        1280: {
+          slidesPerView: 3,
+          spaceBetween: 25
+        },
+        1536: {
+          slidesPerView: 3,
+          spaceBetween: 30
+        },
+        1920: {
+          slidesPerView: 3,
+          spaceBetween: 30
+        }
+      }
+    });
+  })
+</script>
+
+
+{% schema %}
+  {
+    "name": "Ugc Section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "text"
+    },
+      {
+        "type": "image_picker",
+        "id": "url-image",
+        "label": "GIF Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "url-image2",
+      "label": "Happy Mind Text Image"
+    },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "header",
+        "content": "Style"
+      },
+      {
+        "type": "select",
+        "id": "color_scheme",
+        "label": "Color scheme",
+        "default": "default",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          }, {
+            "value": "scheme-1",
+            "label": "scheme 1"
+          }, {
+            "value": "scheme-2",
+            "label": "scheme 2"
+          }, {
+            "value": "custom",
+            "label": "custom (Set below)"
+          }
+        ]
+      }, {
+        "type": "color",
+        "id": "section_text_color_scheme",
+        "default": "#000000",
+        "label": "Custom Text Color"
+      }, {
+        "type": "color",
+        "id": "section_heading_color_scheme",
+        "default": "#000",
+        "label": "Custom Heading Color"
+      }, {
+        "type": "color",
+        "id": "section_links_color_scheme",
+        "default": "#0058F7",
+        "label": "Custom Link Color"
+      }, {
+        "type": "color",
+        "id": "section_background_color_scheme",
+        "default": "#F9F9F9",
+        "label": "Custom Background Color"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "ugc-card",
+        "name": "Ugc Card",
+        "limit": 15,
+        "settings": [
+          {
+            "type": "header",
+            "content": "Rating"
+          },
+          {
+            "type": "range",
+            "id": "review_star",
+            "label": "Review",
+            "min": 1,
+            "max": 5,
+            "default": 1
+          },
+          {
+            "type": "image_picker",
+            "id": "card-img",
+            "label": "Image"
+          },
+          {
+            "type": "richtext",
+            "id": "content_description",
+            "label": "Text",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac libero nec felis pretium.</p>"
+          }, 
+          {
+            "type": "text",
+            "id": "sub_title",
+            "label": "User name",
+            "default": "John Dee"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Ugc Section"
+      }
+    ]
+  }
+{% endschema %}
