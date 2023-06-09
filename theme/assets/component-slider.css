@@ -440,13 +440,13 @@ slider-component.slider-component-full-width {
 slider-component button.slider-button.slider-button--prev {
   position: absolute;
   left: -1%;
-  top: 27%;
+  top: 34%;
   z-index: 99999;
 }
 slider-component button.slider-button.slider-button--next {
   position: absolute;
   right: -1%;
-  top: 27%;
+  top: 34%;
   z-index: 99999;
 }
 @media screen and (min-width: 768px) {

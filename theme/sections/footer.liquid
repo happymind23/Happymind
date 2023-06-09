@@ -235,8 +235,9 @@
     {%- endunless -%}
   {%- endif -%}
 
+  <div class="border_top">
   <div class="footer__content-bottom">
-    <div class="footer__content-bottom-wrapper page-width">
+    <div class="footer__content-bottom-wrapper page-width right__left">
       <div class="footer__column footer__localization isolate">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
           <noscript>
@@ -332,7 +333,7 @@
         {%- endif -%}
       </div>
     </div>
-    <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
+    <div class="footer__content-bottom-wrapper right__right page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} {% endif %}">
       <div class="footer__copyright caption">
         <small class="copyright__content"
           >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
@@ -353,6 +354,7 @@
         {%- endif -%}
       </div>
     </div>
+  </div>
   </div>
 </footer>
 
