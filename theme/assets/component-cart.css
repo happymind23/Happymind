@@ -22,7 +22,12 @@ cart-items.is-empty .title-wrapper-with-link,
 }
 
 .cart__empty-text {
-  margin: 4.5rem 0 2rem;
+    margin: 4.5rem 0 2rem;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 29px;
+    color: #262424;
 }
 
 .cart__contents > * + * {
@@ -49,6 +54,14 @@ cart-items.is-empty .title-wrapper-with-link,
   .cart__empty-text {
     margin: 0 0 3rem;
   }
+  .cart__empty-text {
+    margin: 4.5rem 0 2rem;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40px;
+    color: #262424;
+}
 }
 
 cart-items {
