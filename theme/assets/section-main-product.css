@@ -28,7 +28,7 @@
   }
 
   .product__info-wrapper {
-    padding: 0 0 0 5rem;
+    padding: 0 0 0 3rem;
   }
 
   .product__info-wrapper--extra-padding {
@@ -59,7 +59,6 @@
   }
 
   .product--large:not(.product--no-media) .product__info-wrapper {
-    padding: 0 0 0 4rem;
     max-width: 35%;
     width: calc(35% - var(--grid-desktop-horizontal-spacing) / 2);
   }
@@ -78,6 +77,13 @@
   .product--small:not(.product--no-media) .product__media-wrapper {
     max-width: 45%;
     width: calc(45% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+}
+
+
+@media screen and (min-width: 1440px) {
+  .product__info-wrapper {
+    padding: 0 0 0 5rem;
   }
 }
 
@@ -108,7 +114,7 @@
 .shopify-payment-button__button--unbranded {
   background-color: rgba(var(--color-button), var(--alpha-button-background));
   color: rgb(var(--color-button-text));
-  font-size: 1.4rem;
+  font-size: 18px;
   line-height: calc(1 + 0.2 / var(--font-body-scale));
   letter-spacing: 0.07rem;
 }
@@ -180,7 +186,7 @@ variant-selects {
 }
 
 fieldset.product-form__input .form__label {
-  margin-bottom: 0.2rem;
+  margin-bottom: 0;
 }
 
 .product-form__input input[type='radio'] {
@@ -312,7 +318,7 @@ fieldset.product-form__input .form__label {
 /* Product info */
 
 .product__info-container > * + * {
-  margin: 10px 0;
+  margin: 0px 0 9px;
 }
 
 .product__info-container iframe {
@@ -322,7 +328,7 @@ fieldset.product-form__input .form__label {
 .product__info-container .product-form,
 .product__info-container .product__description,
 .product__info-container .icon-with-text {
-  margin: 2.5rem 0;
+  margin: 1.5rem 0;
 }
 
 .product__text {
@@ -344,7 +350,7 @@ p.product__text.inline-richtext.caption-with-letter-spacing {
 
 
 .variant-section {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .product__title {
   word-break: break-word;
@@ -375,6 +381,7 @@ p.product__text.inline-richtext.caption-with-letter-spacing {
   font-weight: 500;
 }
 @media screen and (min-width: 768px) {
+ 
 }
 @media screen and (min-width: 1280px) {
   .product__title h1 {
@@ -383,6 +390,17 @@ p.product__text.inline-richtext.caption-with-letter-spacing {
   }
   .product__tax {
       font-size: 16px;  
+  }
+  .product__info-container > * + * {
+    margin: 10px 0;
+  }
+  .variant-section {
+    margin-top: 30px;
+  }
+  .product__info-container .product-form,
+  .product__info-container .product__description,
+  .product__info-container .icon-with-text {
+    margin: 2.5rem 0;
   }
 }
 @media screen and (min-width: 1750px) {
@@ -406,7 +424,8 @@ p.product__text.inline-richtext.caption-with-letter-spacing {
 }
 
 .product__text.caption-with-letter-spacing + .product__title {
-  margin-top: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .product__accordion .accordion__content {
@@ -621,7 +640,7 @@ p.product__text.inline-richtext.caption-with-letter-spacing {
 
 .product__media-icon .icon {
   width: 1.2rem;
-  height: 1.4rem;
+  height: 18px;
 }
 
 .product__media-icon,
@@ -856,12 +875,12 @@ p.product__text.inline-richtext.caption-with-letter-spacing {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  right: 2rem;
-  padding: 1.2rem;
+  right: 1rem;
+  padding: 10px;
   position: fixed;
   z-index: 2;
-  top: 2rem;
-  width: 4rem;
+  top: 1rem;
+  width: 2.5rem;
 }
 
 .product-media-modal__content .deferred-media {
@@ -1309,8 +1328,8 @@ p.product__text.inline-richtext.caption-with-letter-spacing {
   }
 
   .product:not(.product--small) .thumbnail__badge .icon-3d-model {
-    width: 1.4rem;
-    height: 1.4rem;
+    width: 18px;
+    height: 18px;
   }
 }
 

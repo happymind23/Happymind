@@ -7,7 +7,7 @@
 
 @media screen and (max-width: 989px) {
   .collection .slider.slider--tablet {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
   }
 }
 
@@ -114,7 +114,7 @@
     padding-right: 30px;
   }
   .collection .grid__item {
-    padding: 0 25px;
+    padding: 0 13px;
   }
   .collection slider-component .grid__item {
     padding: 0 13px;
@@ -134,7 +134,7 @@
     padding-right: 30px;
   }
   .collection .grid__item {
-    padding: 0 15px;
+    padding: 0 10px;
   }
   .collection slider-component .grid__item {
     padding: 0 10px;
@@ -146,7 +146,7 @@
     padding-right: 30px;
   }
   .collection .grid__item {
-    padding: 0 20px;
+    padding: 0 10px;
   }
   .collection slider-component .grid__item {
     padding: 0 10px;
@@ -163,7 +163,7 @@
 }
 @media (min-width: 1920px) {
   .collection .grid__item {
-    padding: 0 30px;
+    padding: 0 25px;
   }
   .collection slider-component .grid__item {
     padding: 0 25px;
@@ -191,7 +191,7 @@
 }
 
 .collection__view-all a:not(.link) {
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .collection-list.grid--2-col-desktop li:first-child .icon-wrap {

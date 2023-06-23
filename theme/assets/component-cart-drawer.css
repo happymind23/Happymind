@@ -118,8 +118,8 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 }
 
 .drawer__close svg {
-  height: 1.4rem;
-  width: 1.4rem;
+  height: 18px;
+  width: 18px;
 }
 
 .drawer__contents {
@@ -246,7 +246,7 @@ cart-drawer-items {
     object-fit: contain;
   }
   .cart-drawer .cart-item {
-    gap: 20px;
+    gap: 10px;
   }
 }
 .cart-drawer .cart-items thead {

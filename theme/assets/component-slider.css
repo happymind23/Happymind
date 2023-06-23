@@ -10,12 +10,12 @@ slider-component {
 }
 @media screen and (min-width: 768px) {
   .collection-list-wrapper slider-component {
-    max-width: 500px;
+    max-width: 1324px;
   }
 }
 @media screen and (min-width: 1024px) {
   .collection-list-wrapper slider-component {
-    max-width: 1324px;
+    max-width: 1424px;
   }
 }
 
@@ -419,19 +419,19 @@ slider-component.slider-component-full-width {
 }
 
 .slider-button--next .icon {
-  transform: rotate(-90deg);
-}
-
-.slider-button--prev .icon {
   transform: rotate(90deg);
 }
 
+.slider-button--prev .icon {
+  transform: rotate(-90deg);
+}
+
 .slider-button--next:not([disabled]):hover .icon {
-  transform: rotate(-90deg) scale(1.1);
+  transform: rotate(90deg) scale(1.1);
 }
 
 .slider-button--prev:not([disabled]):hover .icon {
-  transform: rotate(90deg) scale(1.1);
+  transform: rotate(-90deg) scale(1.1);
 }
 
 .collection  slider-component.page-width {
@@ -439,16 +439,19 @@ slider-component.slider-component-full-width {
 }
 slider-component button.slider-button.slider-button--prev {
   position: absolute;
-  left: -1%;
+  left: 2px;
   top: 34%;
-  z-index: 99999;
+  z-index: 1;
+ 
 }
 slider-component button.slider-button.slider-button--next {
   position: absolute;
-  right: -1%;
+  right: 2px;
   top: 34%;
-  z-index: 99999;
+  z-index: 1;
+
 }
+
 @media screen and (min-width: 768px) {
   slider-component button.slider-button.slider-button--prev {
     position: absolute;

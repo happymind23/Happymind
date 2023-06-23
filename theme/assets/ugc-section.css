@@ -3,6 +3,7 @@
     padding-bottom: 50px;
     background-color: #FF5F53;
     position: relative;
+    margin-top: 50px;
 }
 .ugc-section .title-wrapper, .ugc-section .title {
     color: #fff;
@@ -26,6 +27,9 @@
 @media (min-width: 768px) {
     .ugc-section .Ugc-row .swiper-slide .Ugc-card .Ugc-img {
         padding-top: 70.2%
+    }
+    .ugc-section {
+        margin-top: 10px;
     }
 }
 @media (min-width: 1024px) {

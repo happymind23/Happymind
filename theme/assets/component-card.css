@@ -160,14 +160,25 @@
     --ratio-percent: {{ 1 | divided_by: ratio | times: 115 }}%;
   }
 }
+
 .card__badge {
   align-self: flex-start;
   grid-row-start: 1;
   justify-self: flex-start;
   position: relative;
-    top: -12px;
+  top: -24px;
+  left: -10px;
 }
-
+@media screen and (min-width: 768px) { 
+  .card__badge {
+    align-self: flex-start;
+    grid-row-start: 1;
+    justify-self: flex-start;
+    position: relative;
+    top: -19px;
+    left: -7px;
+  }
+}
 .card__badge.top {
   align-self: flex-start;
   grid-row-start: 1;
@@ -213,12 +224,12 @@
     line-height: 28px;
   }
 }
-@media only screen and (min-width:1024px) {
+/* @media only screen and (min-width:1024px) {
   .card__heading {
     font-size: 16px;
     line-height: 26px;
   }
-}
+} */
 @media only screen and (min-width:1536px) {
   .card__heading {
     font-size: 18px;
@@ -486,9 +497,9 @@
     line-height: 34px;
   }
   .collection_name.card__content .card__information a.full-unstyled-link .buton_style {
-    min-height: 60px;
-    min-width: 295px;
-    margin-bottom: -23px;
+    min-height: 51px;
+    min-width: 252px;
+    margin-bottom: -24px;
   }
 }
 

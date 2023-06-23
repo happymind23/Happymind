@@ -9,9 +9,6 @@
   margin: 0;
 }
 
-.totals > h2 {
-  font-size: calc(var(--font-heading-scale) * 1.6rem);
-}
 
 .totals * {
   line-height: 1;
@@ -20,17 +17,43 @@
 .totals > * + * {
   margin-left: 2rem;
 }
-
+.totals > h2.totals__subtotal {
+  margin-top: 0;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 23px;
+  color: #323232;
+  letter-spacing: normal;
+}
 .totals__subtotal-value {
-  font-size: 1.8rem;
+  margin-top: 0;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 23px;
+  color: #ff5f53;
+  letter-spacing: normal;
 }
 
 .cart__ctas + .totals {
   margin-top: 2rem;
 }
 
+
 @media all and (min-width: 750px) {
   .totals {
     justify-content: flex-end;
+  }
+ 
+}
+@media screen and (max-width: 768px) {
+  .totals__subtotal-value {
+      font-size: 20px;
+      line-height: 30px;
+  }
+  .totals > h2.totals__subtotal {
+    font-size: 20px;
+    line-height: 30px;
   }
 }
